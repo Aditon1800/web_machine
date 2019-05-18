@@ -138,27 +138,16 @@
   color: @white;
   line-height: 1;
 
-  .icon {
-    text-decoration: none;
-  }
-
   &__name {
     text-decoration: none;
+    font-style: italic;
+    color: @turbid-yellow;
+    border-bottom: 1px solid @turbid-yellow;
+    .transition();
+    margin: 0 4px;
 
-    * {
-      vertical-align: middle;
-    }
-
-    span {
-      font-style: italic;
-      color: @turbid-yellow;
-      border-bottom: 1px solid @turbid-yellow;
-      .transition();
-      margin: 0 4px 0 2px;
-
-      &:hover {
-        border-color: transparent;
-      }
+    &:hover {
+      border-color: transparent;
     }
 
     &:visited {
@@ -180,10 +169,9 @@
     padding-left: 10px;
   }
 
-  &-icon {
-    width: 24px;
-    height: 20px;
-    background-image: url('../img/basket.png');
+  .fas {
+    color: @yellow;
+    font-size: 20px;
   }
 }
 
