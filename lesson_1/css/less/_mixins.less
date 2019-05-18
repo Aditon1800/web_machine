@@ -1,0 +1,55 @@
+// Gradients
+
+.linearGradient(@start, @end) {
+  background: -moz-linear-gradient(top, @start 0%, @end 100%);
+  background: -webkit-linear-gradient(top, @start 0%,@end 100%);
+  background: linear-gradient(to bottom, @start 0%,@end 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@{start}', endColorstr='@{end}',GradientType=0 );
+}
+
+// Flex properties
+
+.flex() {
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+}
+
+.flexDirection(@params) {
+  -webkit-flex-direction: @params;
+  -moz-flex-direction: @params;
+  -ms-flex-direction: @params;
+  -o-flex-direction: @params;
+  flex-direction: @params;
+}
+
+.flexWrap(@params) {
+  -webkit-flex-wrap: @params;
+  -moz-flex-wrap: @params;
+  -ms-flex-wrap: @params;
+  -o-flex-wrap: @params;
+  flex-wrap: @params;
+}
+
+.alignItems(@params) {
+  -ms-align-items: @params;
+  align-items: @params;
+}
+
+.alignSelf(@params) {
+  -ms-align-self: @params;
+  align-self: @params;
+}
+
+// Pseudo elem
+.pseudo(@content: '', ) {
+  position: absolute;
+  content: @content;
+  display: block;
+}
+
+// Transition
+.transition(@props: all .3s) {
+  transition: @props;
+}
