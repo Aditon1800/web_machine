@@ -19,6 +19,17 @@
     <link rel="stylesheet" href="css/style.css">
     <!-- Custom script -->
     <script src="js/script.js"></script>
+    <!-- IE gradient fix -->
+    <script>
+      var uA = navigator.userAgent;
+      if(uA.indexOf('Trident') != -1 && uA.indexOf('rv:11') != -1){
+          document.body.className = document.body.className+' ie ie11';
+      } else if(uA.indexOf('Trident') != -1 && uA.indexOf('MSIE 10.0') != -1){
+          document.body.className = document.body.className+' ie ie10';
+      } else if(uA.indexOf('MSIE ') != -1) {
+          document.body.className = document.body.className+' ie ieo';
+      }
+    </script>
 
   </head>
   <body>
@@ -26,7 +37,7 @@
     <div class="container-fluid">
 
       <!-- Header -->
-      <header c;ass="header">
+      <header class="header">
         <div class="header__top">
           <div class="container">
             <div class="row">
@@ -90,7 +101,7 @@
             <!-- Slide -->
             <div class="slider__item" style="background-image: url('img/top_slider/slide_1_layer.jpg');">
               <div class="container">
-                <h2 class="slider__item-title">
+                <h2 class="slider__item-title block-title">
                   treat your family <br> with fresh and juicy fruits!
                 </h2>
                 <div class="slider__item-info">
@@ -99,7 +110,7 @@
                       orange
                     </h3>
                     <p class="slider__item-desc__text">
-                      In an ideal world this website wouldn’t exist, a client would acknowledge the importance having web copy before the design starts.
+                      In an ideal world this website wouldn’t exist, a&nbsp;client would acknowledge the importance having web copy before the design starts.
                     </p>
                     <p class="slider__item-desc__bottom-text">
                       Best treat when inviting friends or family!
@@ -115,14 +126,14 @@
             <!-- Slide -->
             <div class="slider__item" style="background-image: url('img/top_slider/slide_2_layer.jpg');">
               <div class="container">
-                <h2 class="slider__item-title">
+                <h2 class="slider__item-title block-title">
                   treat your family <br> with fresh and juicy fruits!
                 </h2>
                 <div class="slider__item-info">
                   <div class="slider__item-desc">
                     <h3 class="slider__item-desc__title">apple</h3>
                     <p class="slider__item-desc__text">
-                      In an ideal world this website wouldn’t exist, a client would acknowledge the importance having web copy before the design starts.
+                      In an ideal world this website wouldn’t exist, a&nbsp;client would acknowledge the importance having web copy before the design starts.
                     </p>
                     <p class="slider__item-desc__bottom-text">
                       Best treat when inviting friends or family!
@@ -138,14 +149,14 @@
             <!-- Slide -->
             <div class="slider__item" style="background-image: url('img/top_slider/slide_3_layer.jpg');">
               <div class="container">
-                <h2 class="slider__item-title">
+                <h2 class="slider__item-title block-title">
                   treat your family <br> with fresh and juicy fruits!
                 </h2>
                 <div class="slider__item-info">
                   <div class="slider__item-desc">
                     <h3 class="slider__item-desc__title">punica</h3>
                     <p class="slider__item-desc__text">
-                      In an ideal world this website wouldn’t exist, a client would acknowledge the importance having web copy before the design starts.
+                      In an ideal world this website wouldn’t exist, a&nbsp;client would acknowledge the importance having web copy before the design starts.
                     </p>
                     <p class="slider__item-desc__bottom-text">
                       Best treat when inviting friends or family!
@@ -164,7 +175,194 @@
 
       <main>
         <!-- Main -->
-        <div class="main-content"></div>
+        <div class="main-content">
+
+          <div class="container">
+
+            <!-- About -->
+            <section class="about">
+              <h2 class="block-title">
+                <span>
+                  about us
+                </span>
+              </h2>
+              <p>
+                However, back over in&nbsp;reality some project schedules and  with the web copy, <br> we want you think about how numbers, symbols and bullet points will look.
+              </p>
+              <p>
+                <small>
+                  In an ideal world this website wouldn’t exist, a&nbsp;client would acknowledge the importance having <br> web copy before the design starts. Needless to&nbsp;say it’s very important, content is&nbsp;king and people are beginning to&nbsp;understand that. 
+                </small>
+              </p>
+            </section>
+
+            <!-- Search block -->
+
+            <div class="search-block top-search-block">
+              <form action="form_handler.php" method="GET">
+                <div class="input-line-wrapper clearfix">
+
+                  <div class="input-line search-input-line">
+                    <input type="text" class="input search-input" name="search" placeholder="Find in catalog..." required>
+                  </div>
+
+                  <div class="input-line submit-input-line">
+                    <button type="submit" name="search-submit" class="btn btn-submit">search <i class="fas fa-search"></i></button>
+                  </div>
+
+                </div>
+              </form>
+            </div>
+
+            <!-- Content -->
+            <section class="content-block">
+              <div class="row-no-mrg">
+                <div class="col col-6">
+                  <!-- Video -->
+                  <div class="video-block" style="background-image: url('img/video-preview.jpg');">
+
+                    <div class="video-block__desc">
+                      <div class="row">
+                        <div class="col">
+                          <a href="" data-fancybox>
+                            <span class="video-play">
+                              <i class="icon video-play__icon"></i>
+                            </span>
+                          </a>
+                        </div>
+                        
+                        <div class="col">
+                          <h2 class="block-title">
+                            our production
+                          </h2>
+                          <p class="video-block__notation">
+                            Short video about our production
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+                <div class="col col-6">
+                  <div class="content-reviews">
+                    <div class="content-reviews__desc">
+                      <h3 class="content-reviews__author">
+                        Peter Berger
+                      </h3>
+                      <span class="content-reviews__author-pos">
+                        Vice-president
+                      </span>
+                      <blockquote class="content-reviews__author-bq">
+                        There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. 
+                      </blockquote>
+                    </div>
+
+                    <img src="img/blockquote-prev-1.png" alt="Peter Berger, Vice-president">
+
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Offers -->
+            <section class="offers">
+              <!-- Offers header -->
+              <header class="offers__header">
+
+                <div class="offers__slider-nav"></div>
+
+                <h2 class="block-title offers__header-title">
+                  best offers
+                </h2>
+
+                <div class="offers__sort-block">
+                  <form action="sort_handler.php" method="GET">
+                    <div class="sort-line">
+                      <span class="sort-line__name">Sort by</span>
+                      <div class="sort-line__custom-select">
+                        <i class="fas fa-arrow-down"></i>
+                        <select name="offers-sort" id="sort">
+                          <option value="sort-category">Category</option>
+                          <option value="sort-name">Name</option>
+                          <option value="sort-cost">Cost</option>
+                        </select>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </header>
+
+              <!-- Offers cards -->
+              <div class="offers-cards js-offersSlider">
+                <!-- Offer card item -->
+                <div class="offer-card-item">
+                  <img src="img/card-fruit-1.jpg" alt="Title of the item for exemple">
+                  <h6 class="offer-card-item__title">
+                    Title of the item for exemple
+                  </h6>
+                  <span class="offer-card-item__cost">
+                    $3,200
+                  </span>
+                  <a href="#" class="btn offer-card-item__btn">
+                    <i class="fas fa-shopping-basket"></i>
+                    Buy
+                  </a>
+                </div>
+
+                <!-- Offer card item -->
+                <div class="offer-card-item">
+                  <img src="img/card-fruit-2.jpg" alt="Title of the item for exemple">
+                  <h6 class="offer-card-item__title">
+                    Title of the item for exemple
+                  </h6>
+                  <span class="offer-card-item__cost">
+                    $3,200
+                  </span>
+                  <a href="#" class="btn offer-card-item__btn">
+                    <i class="fas fa-shopping-basket"></i>
+                    Buy
+                  </a>
+                </div>
+
+                <!-- Offer card item -->
+                <div class="offer-card-item">
+                  <img src="img/card-fruit-3.jpg" alt="Title of the item for exemple">
+                  <h6 class="offer-card-item__title">
+                    Title of the item for exemple
+                  </h6>
+                  <span class="offer-card-item__cost">
+                    $3,200
+                  </span>
+                  <a href="#" class="btn offer-card-item__btn">
+                    <i class="fas fa-shopping-basket"></i>
+                    Buy
+                  </a>
+                </div>
+
+                <!-- Offer card item -->
+                <div class="offer-card-item">
+                  <img src="img/card-fruit-4.jpg" alt="Title of the item for exemple">
+                  <h6 class="offer-card-item__title">
+                    Title of the item for exemple
+                  </h6>
+                  <span class="offer-card-item__cost">
+                    $3,200
+                  </span>
+                  <a href="#" class="btn offer-card-item__btn">
+                    <i class="fas fa-shopping-basket"></i>
+                    Buy
+                  </a>
+                </div>
+              </div>
+
+            </section>
+
+
+          </div>
+
+        </div>
       </main>
 
       <!-- Footer -->

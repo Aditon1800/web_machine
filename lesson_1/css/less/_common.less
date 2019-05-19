@@ -20,7 +20,7 @@ span {
 }
 
 .container-fluid {
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 .container {
@@ -30,10 +30,14 @@ span {
   margin: 0 auto;
 }
 
-.row {
+.row,
+.row-no-mrg {
   .flex();
   .flexDirection(row);
   .flexWrap(wrap);
+}
+
+.row {
   margin-right: -15px;
   margin-left: -15px;
 }
@@ -44,9 +48,78 @@ span {
   word-wrap: break-word;
 }
 
+.row-no-mrg {
+
+  & > .col {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
 .icon {
   display: inline-block;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+}
+
+.clearfix {
+
+  &:after,
+  &:before {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+
+.btn {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  .transition();
+}
+
+.block-title {
+  font-family: @fredoka;
+}
+
+.col-3 {
+  width: 25%;
+}
+
+.col-4 {
+  width: 33.3333%;
+}
+
+.col-6 {
+  width: 50%;
+}
+
+.col-8 {
+  width: 66.6666%;
+}
+
+.col-9 {
+  width: 75%;
+}
+
+.col-12 {
+  width: 100%;
+}
+
+// IE FIXES
+.ie.ie10,
+.ie.ieo {
+
+  .sort-line {
+
+    &__custom-select {
+
+      .fas {
+        display: none;
+      }
+    }
+  }
 }
