@@ -91,3 +91,15 @@
     color: @color;
   }
 }
+
+.btnGradientPseudo(@gradient1, @gradient2) {
+  .pseudo();
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: @gradient1;
+  .linearGradient(@gradient1, @gradient2);
+  .transition(opacity .3s);
+  z-index: -1;
+}
