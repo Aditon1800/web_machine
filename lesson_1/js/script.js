@@ -48,6 +48,14 @@ $(document).ready(function() {
     prevArrow: $customTwitBtnPrev
   });
 
+  $('[data-type="iframe"]').fancybox({
+    iframe : {
+      css: {
+        maxWidth: '960px',
+        maxHeight: '540px'
+      }
+    }
+  });
 
 
 });
