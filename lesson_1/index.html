@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/fontawesome.css">
     <link rel="stylesheet" href="css/libs/slick.css">
     <link rel="stylesheet" href="css/libs/slick-theme.css">
+    <link rel="stylesheet" href="css/libs/fancybox.css">
     <!-- Jquery cdnjs -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="js/libs/slick.min.js"></script>
@@ -19,6 +20,7 @@
     <link rel="stylesheet" href="css/style.css">
     <!-- Custom script -->
     <script src="js/script.js"></script>
+    <script src="js/libs/fancybox.min.js"></script>
     <!-- IE gradient fix -->
     <script>
       var uA = navigator.userAgent;
@@ -98,6 +100,7 @@
         <!-- Header slider -->
         <div class="header__slider slider">
           <div class="slider js-slider">
+
             <!-- Slide -->
             <div class="slider__item" style="background-image: url('img/top_slider/slide_1_layer.jpg');">
               <div class="container">
@@ -123,6 +126,7 @@
                 </div>
               </div>
             </div>
+
             <!-- Slide -->
             <div class="slider__item" style="background-image: url('img/top_slider/slide_2_layer.jpg');">
               <div class="container">
@@ -146,6 +150,7 @@
                 </div>
               </div>
             </div>
+
             <!-- Slide -->
             <div class="slider__item" style="background-image: url('img/top_slider/slide_3_layer.jpg');">
               <div class="container">
@@ -169,6 +174,7 @@
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </header>
@@ -404,19 +410,219 @@
                   </a>
                 </div>
               </div>
-
             </section>
 
+            <!-- Main banner -->
+            <section class="banner main-banner" style="background-image: url('img/main-banner.jpg');">
+              <h2 class="block-title">
+                experience
+              </h2>
+              <p>
+                However, back over in&nbsp;reality some project schedules and with the web copy, we&nbsp;want you think about how numbers
+              </p>
+              <a href="" class="btn banner-link main-banner__link">See more ></a>
+            </section>
+
+            <!-- Bottom banners -->
+
+            <section class="banner bottom-banners">
+              <div class="mini-banner" style="background-image: url('img/mini-banner-1.jpg');">
+                <h3 class="block-title">fruits</h3>
+                <a href="" class="btn banner-link mini-banner__link">See more ></a>
+              </div>
+              <div class="mini-banner" style="background-image: url('img/mini-banner-2.jpg');">
+                <h3 class="block-title">vegetables</h3>
+                <a href="" class="btn banner-link mini-banner__link">See more ></a>
+              </div>
+              <div class="mini-banner" style="background-image: url('img/mini-banner-3.jpg');">
+                <h3 class="block-title">berries</h3>
+                <a href="" class="btn banner-link mini-banner__link">See more ></a>
+              </div>
+            </section>
 
           </div>
 
-        </div>
-      </main>
 
-      <!-- Footer -->
-      <div class="footer" id="contacts">
-        <div class="container"></div>
-      </div>
+          <!-- Footer -->
+          <footer class="footer" id="contacts">
+            <div class="container">
+
+              <!-- Top footer -->
+              <div class="top-footer">
+                <div class="row">
+
+                  <div class="col col-4">
+                    <div class="row">
+
+                      <div class="col col-6">
+                        <h4 class="block-title orange-title">
+                          support
+                        </h4>
+                        <ul class="top-footer__nav">
+                          <li><a href="#">Terms of Service</a></li>
+                          <li><a href="#">Security</a></li>
+                          <li><a href="#">Privacy Policy</a></li>
+                          <li><a href="#">Sitemap</a></li>
+                        </ul>
+                      </div>
+
+                      <div class="col col-6">
+                        <h4 class="block-title orange-title">
+                          for users
+                        </h4>
+                        <ul class="top-footer__nav">
+                          <li><a href="#">The best solutions</a></li>
+                          <li><a href="#">Special offers</a></li>
+                          <li><a href="#">Quality control</a></li>
+                          <li><a href="#">Services</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col col-4">
+                    <h4 class="block-title orange-title">
+                      contacts
+                    </h4>
+                    
+                    <div class="top-footer__info">
+                      <div class="top-footer__info-phone">
+                        <a href="callto:8002346789">
+                          800 <b>234-67-89</b>
+                        </a>
+                      </div>
+
+                      <div class="top-footer__info-mail">
+                        <a href="mailto:info@website.com">
+                          info@website.com
+                        </a>
+                      </div>
+
+                      <div class="top-footer__info-address">
+                        <span>
+                          <i class="fas fa-map-marker-alt"></i> <b>Spain,</b> Madrid, 4753 Fourth&nbsp;St
+                        </span>
+                      </div>
+                    </div>
+
+                  </div>
+                  <div class="col col-4">
+
+                    <!-- Footer widget -->
+                    <div class="widget footer-widget">
+
+                      <h4 class="block-title footer-widget__title">
+                        <i class="fab fa-twitter"></i>
+                        latest twits
+                      </h4>
+
+                      <div class="widget-slider-wrapper">
+
+                        <!-- Widget controls -->
+                        <div class="widget-slider-controls">
+                          <button class="btn widget-slider-prev js-twitSliderPrev">
+                            <i class="fas fa-arrow-up"></i>
+                          </button>
+                          <button class="btn widget-slider-next js-twitSliderNext">
+                            <i class="fas fa-arrow-down"></i>
+                          </button>
+                        </div>
+
+                        <!-- Widget slider -->
+                        <div class="twits-slider js-twitsSlider">
+                          <!-- Twit -->
+                          <div class="twit">
+                            <p>
+                              The generated Lorem Ipsum is therefore always free from repetition, injected humour.
+                            </p>
+                            <div class="twit-info">
+                              <span class="twit-info__email">@Exotico</span>
+                              <span class="twit-info__time">3&nbsp;hours ago</span>
+                            </div>
+                          </div>
+                          <!-- Twit -->
+                          <div class="twit">
+                            <p>
+                              The generated Lorem Ipsum is therefore always free from repetition, injected humour.
+                            </p>
+                            <div class="twit-info">
+                              <span class="twit-info__email">@Exotico</span>
+                              <span class="twit-info__time">3&nbsp;hours ago</span>
+                            </div>
+                          </div>
+                          <!-- Twit -->
+                          <div class="twit">
+                            <p>
+                              The generated Lorem Ipsum is therefore always free from repetition, injected humour.
+                            </p>
+                            <div class="twit-info">
+                              <span class="twit-info__email">@Exotico</span>
+                              <span class="twit-info__time">3&nbsp;hours ago</span>
+                            </div>
+                          </div>
+                        </div>
+                        
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bottom footer -->
+            <div class="bottom-footer">
+
+              <div class="container">
+
+                <!-- Footer nav -->
+                <nav class="footer__nav">
+                  <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">Contacts</a></li>
+                  </ul>
+                </nav>
+
+                <!-- Footer bottom info -->
+                <div class="footer__bottom-info">
+                  <!-- Socials -->
+                  <div class="social footer__socials">
+                    <a href="#" class="footer__social social-flickr">
+                      <i class="fab fa-flickr"></i>
+                    </a>
+                    <a href="" class="footer__social social-twitter">
+                      <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="footer__social social-facebook">
+                      <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="footer__social social-pinterest">
+                      <i class="fab fa-pinterest-p"></i>
+                    </a>
+                  </div>
+
+                  <span class="delimetr">
+                    |
+                  </span>
+
+                  <!-- Copy -->
+                  <p class="footer__copy">
+                    &copy; 2014&nbsp;-&nbsp;All Rights Reserved 
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
+          </footer>
+        </div>
+
+      </main>
 
     </div>
 

@@ -1,9 +1,16 @@
 $(document).ready(function() {
   "use strict";
 
-  var $slider = $('.js-slider'),
-      $offerSlider = $('.js-offersSlider');
 
+  var $slider = $('.js-slider'),
+      $offerSlider = $('.js-offersSlider'),
+      $twitSlider = $('.js-twitsSlider'),
+      $customOffersBtnNext = $('.js-offersSliderNext'),
+      $customOffersBtnPrev = $('.js-offersSliderPrev'),
+      $customTwitBtnNext = $('.js-twitSliderNext'),
+      $customTwitBtnPrev = $('.js-twitSliderPrev');
+
+  // Top slider
   $slider.slick({
     dots: true,
     arrows: false,
@@ -15,9 +22,7 @@ $(document).ready(function() {
     verticalSwiping: true
   });
 
-  var $customOffersBtnNext = $('.js-offersSliderNext'),
-      $customOffersBtnPrev = $('.js-offersSliderPrev');
-
+  // Offers slider
   $offerSlider.slick({
     infinite: true,
     dots: false,
@@ -27,6 +32,20 @@ $(document).ready(function() {
     slidesToScroll: 1,
     nextArrow: $customOffersBtnNext,
     prevArrow: $customOffersBtnPrev
+  });
+
+  // Twits slider
+  $twitSlider.slick({
+    dots: false,
+    arrows: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    vertical: true,
+    verticalSwiping: true,
+    nextArrow: $customTwitBtnNext,
+    prevArrow: $customTwitBtnPrev
   });
 
 
