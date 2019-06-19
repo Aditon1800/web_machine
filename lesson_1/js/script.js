@@ -5,8 +5,10 @@ $(document).ready(function() {
   var $slider = $('.js-slider'),
       $offerSlider = $('.js-offersSlider'),
       $twitSlider = $('.js-twitsSlider'),
+
       $customOffersBtnNext = $('.js-offersSliderNext'),
       $customOffersBtnPrev = $('.js-offersSliderPrev'),
+
       $customTwitBtnNext = $('.js-twitSliderNext'),
       $customTwitBtnPrev = $('.js-twitSliderPrev');
 
