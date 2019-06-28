@@ -211,26 +211,6 @@
 
             </div>
           </li>
-
-<!--             <li>
-                <div class="items1">
-                    <a href="gallery-opened.html"><img src="css/images/gallery/1.jpg" alt=""/></a>
-                    <a href="gallery-opened.html"><img src="css/images/gallery/2.jpg" alt=""/></a>
-                    <a href="gallery-opened.html"><img src="css/images/gallery/4.jpg" alt=""/></a>
-                    <a href="gallery-opened.html"><img src="css/images/gallery/3.jpg" alt=""/></a>
-                    <a href="gallery-opened.html"><img src="css/images/gallery/5.jpg" alt=""/></a>
-                </div>
-            </li> -->
-
-<!--             <li>
-                <div class="items2">
-                    <a href="gallery-opened.html"><img src="css/images/gallery/6.jpg" alt=""/></a>
-                    <a href="gallery-opened.html"><img src="css/images/gallery/7.jpg" alt=""/></a>
-                    <a href="gallery-opened.html"><img src="css/images/gallery/9.jpg" alt=""/></a>
-                    <a href="gallery-opened.html"><img src="css/images/gallery/10.jpg" alt=""/></a>
-                    <a href="gallery-opened.html"><img src="css/images/gallery/8.jpg" alt=""/></a>
-                </div>
-            </li> -->
         </ul>
     </div>
 

@@ -107,7 +107,7 @@
 
     // Main slider
     Redux::setSection( $opt_name, array(
-        'title'      => __( 'Home slider', 'redux-framework-demo' ),
+        'title'      => __( 'Home slider', 'bebe' ),
         'id'         => 'home-slider',
         'desc'       => __( 'For full documentation on this field, visit: ', 'bebe' ),
         'subsection' => true,
@@ -180,14 +180,14 @@
             array(
                 'id'       => 'copyrights',
                 'type'     => 'editor',
-                'title'    => __( 'Copyrights', 'redux-framework-demo' ),
+                'title'    => __( 'Copyrights', 'bebe' ),
                 'subtitle' => __( 'Type yor copyright', 'bebe' ),
                 'default'  => '',
             ),
             array(
                 'id'       => 'bebeformshortcode',
                 'type'     => 'text',
-                'title'    => __( 'Form shortcode', 'redux-framework-demo' ),
+                'title'    => __( 'Form shortcode', 'bebe' ),
                 'subtitle' => __( 'Type here the form shortcode', 'bebe' ),
                 'desc'     => __( 'Type the Shortcode from CF7 plugin', 'bebe'),
                 'default'  => '',
@@ -195,4 +195,24 @@
 
         )
     ) );
+
+  Redux::setSection( $opt_name, array(
+      'title'            => __( 'Post Type Settings', 'bebe' ),
+      'id'               => 'posttypesettings_page',
+      'desc'             => __( 'Specify the count of archive', 'bebe' ),
+      'customizer_width' => '400px',
+      'icon'             => 'el el-home',
+      'fields'           => array(
+          array(
+                'id'       => 'roomscount',
+                'type'     => 'text',
+                'title'    => __( 'Post Per Page', 'bebe' ),
+                'subtitle' => __( 'On rooms post type', 'bebe' ),
+                'validate' => 'numeric',
+                'desc'     => __( 'How many posts you want to show on the Room', 'bebe'),
+                'default'  => '',
+          ),  
+      ),
+  ) );
+
 ?>

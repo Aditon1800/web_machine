@@ -70,6 +70,11 @@ function Bebe_register_required_plugins() {
       'slug'      => 'contact-form-7',
       'required'  => true,
     ),
+    array(
+      'name'      => 'WP Google Map Plugin',
+      'slug'      => 'wp-google-map-plugin',
+      'required'  => true,
+    ),
 
 	);
 

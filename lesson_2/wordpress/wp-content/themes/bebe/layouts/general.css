@@ -18,7 +18,7 @@
 /* ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## */
 /* Other
 /* ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## */
-/* Grid System 12 Columns
+/* Grid System 12 Coluarticle.our-teachers .col-4 .image ulmns
 /* ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## */
 .col-1,
 .col-2,
@@ -1224,7 +1224,7 @@ article.pagination {
 article.pagination.gall {
   margin-top: 0;
 }
-article.pagination a {
+article.pagination .page-numbers {
   background: url("images/pagination.png") no-repeat;
   display: inline-block;
   overflow: hidden;
@@ -1239,35 +1239,35 @@ article.pagination a {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-article.pagination a:nth-child(4n+1) {
+article.pagination .page-numbers:nth-child(4n+1) {
   background-position: -2px -2px;
 }
-article.pagination a:nth-child(4n+1):hover,
-article.pagination a:nth-child(4n+1).active {
+article.pagination .page-numbers:nth-child(4n+1):hover,
+article.pagination .page-numbers:nth-child(4n+1).current {
   background-position: -2px -43px;
   color: #fff;
 }
-article.pagination a:nth-child(4n+2) {
+article.pagination .page-numbers:nth-child(4n+2) {
   background-position: -43px -2px;
 }
-article.pagination a:nth-child(4n+2):hover,
-article.pagination a:nth-child(4n+2).active {
+article.pagination .page-numbers:nth-child(4n+2):hover,
+article.pagination .page-numbers:nth-child(4n+2).current {
   background-position: -41px -43px;
   color: #fff;
 }
-article.pagination a:nth-child(4n+3) {
+article.pagination .page-numbers:nth-child(4n+3) {
   background-position: -43px -2px;
 }
-article.pagination a:nth-child(4n+3):hover,
-article.pagination a:nth-child(4n+3).active {
+article.pagination .page-numbers:nth-child(4n+3):hover,
+article.pagination .page-numbers:nth-child(4n+3).current {
   background-position: -41px -43px;
   color: #fff;
 }
-article.pagination a:nth-child(4n+4) {
+article.pagination .page-numbers:nth-child(4n+4) {
   background-position: -83px -2px;
 }
-article.pagination a:nth-child(4n+4):hover,
-article.pagination a:nth-child(4n+4).active {
+article.pagination .page-numbers:nth-child(4n+4):hover,
+article.pagination .page-numbers:nth-child(4n+4).current {
   background-position: -81px -43px;
   color: #fff;
 }
@@ -1536,7 +1536,10 @@ article.our-teachers .col-4 .image ul {
   position: absolute;
   top: 75%;
   left: 50%;
-  margin-left: -61px;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
 }
 article.our-teachers .col-4 .image ul li {
   float: left;
@@ -2002,11 +2005,20 @@ article.blog-single .comments .reply {
 }
 article.blog-single .comments .comment .avatar,
 article.blog-single .comments .reply .avatar {
-  width: 131px;
+  width: 105px;
+  height: 105px;
   float: left;
+}
+article.blog-single .comments .comment .avatar *,
+article.blog-single .comments .reply .avatar * {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 article.blog-single .comments .comment .avatar img,
 article.blog-single .comments .reply .avatar img {
+  width: auto;
+  max-width: 100%;
   border: 13px solid rgba(0, 0, 0, 0.3);
   -webkit-border-top-right-radius: 5px;
   -webkit-border-bottom-right-radius: 5px;
@@ -2038,6 +2050,7 @@ article.blog-single .comments .reply .avatar h4 {
 article.blog-single .comments .comment .text,
 article.blog-single .comments .reply .text {
   width: 85%;
+  min-height: 130px;
   float: right;
 }
 article.blog-single .comments .comment .text .top,
@@ -2050,14 +2063,14 @@ article.blog-single .comments .reply .text .top .date {
   color: #fff;
   font-size: 13px;
 }
-article.blog-single .comments .comment .text .top .reply-button,
-article.blog-single .comments .reply .text .top .reply-button {
+article.blog-single .comments .comment .text .top .comment-reply-link,
+article.blog-single .comments .reply .text .top .comment-reply-link {
   float: right;
   color: #ffd800;
   font-size: 13px;
 }
-article.blog-single .comments .comment .text .top .reply-button:hover,
-article.blog-single .comments .reply .text .top .reply-button:hover {
+article.blog-single .comments .comment .text .top .comment-reply-link:hover,
+article.blog-single .comments .reply .text .top .comment-reply-link:hover {
   opacity: 0.7;
 }
 article.blog-single .comments .comment .text > p,
@@ -2083,7 +2096,7 @@ article.blog-single .comments .reply .text {
   float: right;
 }
 article.blog-single .respond {
-  margin-top: 60px;
+  margin-top: 100px;
   margin-bottom: 100px;
   height: 400px;
   position: relative;
@@ -2107,9 +2120,18 @@ article.blog-single .respond .top h2 {
   color: #895830;
   text-shadow: 0 2px 0 rgba(255, 255, 255, 0.5);
 }
-article.blog-single .respond form {
-  padding-top: 70px;
+article.blog-single .comment-respond {
+  text-align: center;
 }
+article.blog-single .comment-respond p {  
+  text-align: center;
+  color: inherit;
+}
+article.blog-single a,
+article.blog-single a:visited {
+  color: inherit;
+}
+
 article.blog-single .respond form .col-4 input {
   display: block;
   width: 269px;
@@ -2176,6 +2198,8 @@ article.contacts {
 }
 article.contacts .map {
   float: left;
+  width: 100%;
+  max-width: 490px;
   margin-right: 20px;
 }
 article.contacts .map iframe {
@@ -2300,7 +2324,8 @@ article.contacts .respond form textarea {
   font-family: 'Arial' !important;
   overflow: hidden;
 }
-article.contacts .respond form .submit {
+article.contacts .respond form .submit,
+article.contacts .respond form input[type="submit"] {
   margin: 20px auto 0;
   font-family: 'Arial';
   -webkit-transition: all 0.3s ease;
@@ -2321,11 +2346,16 @@ article.contacts .respond form .submit {
   padding-top: 0;
   vertical-align: top;
 }
-article.contacts .respond form .submit:hover {
+article.contacts .respond form input[type="submit"] {
+  font-size: 0;
+}
+article.contacts .respond form .submit:hover,
+article.contacts .respond form input[type="submit"]:hover {
   background: url("images/send2-h.png") no-repeat center;
   opacity: 1;
 }
-article.contacts .respond form .submit:active {
+article.contacts .respond form .submit:active,
+article.contacts .respond form input[type="submit"]:active {
   margin-top: 22px;
 }
 /* Rooms
@@ -3329,6 +3359,7 @@ footer .waves #bui2 {
   -moz-animation: anchor 9s ease infinite;
   animation: anchor 9s ease infinite;
 }
+
 /* Waves Animate
 /* ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## */
 @-webkit-keyframes waves {
@@ -3662,6 +3693,7 @@ footer .waves #bui2 {
   }
   article.contacts .map {
     width: 100%;
+    max-width: none;
   }
   article.contacts .map iframe {
     width: 100%;

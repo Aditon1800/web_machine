@@ -22,40 +22,21 @@ if ( post_password_required() ) {
 
 <div id="comments" class="comments-area">
 
+
 	<?php
 	// You can start editing here -- including this comment!
 	if ( have_comments() ) :
 		?>
-		<h2 class="comments-title">
-			<?php
-			$bebe_comment_count = get_comments_number();
-			if ( '1' === $bebe_comment_count ) {
-				printf(
-					/* translators: 1: title. */
-					esc_html__( 'One thought on &ldquo;%1$s&rdquo;', 'bebe' ),
-					'<span>' . get_the_title() . '</span>'
-				);
-			} else {
-				printf( // WPCS: XSS OK.
-					/* translators: 1: comment count number, 2: title. */
-					esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', $bebe_comment_count, 'comments title', 'bebe' ) ),
-					number_format_i18n( $bebe_comment_count ),
-					'<span>' . get_the_title() . '</span>'
-				);
-			}
-			?>
-		</h2><!-- .comments-title -->
+    <!-- Comments -->
+    <h2 class="title"><?php esc_html_e('Comments','bebe');?></h2>
 
 		<?php the_comments_navigation(); ?>
 
-		<ol class="comment-list">
+		<div class="comments">
 			<?php
-			wp_list_comments( array(
-				'style'      => 'ol',
-				'short_ping' => true,
-			) );
+				wp_list_comments('callback=bebe_comment&end-callback=bebe_comment_close')
 			?>
-		</ol><!-- .comment-list -->
+		</div><!-- .comment-list -->
 
 		<?php
 		the_comments_navigation();
@@ -69,7 +50,41 @@ if ( post_password_required() ) {
 
 	endif; // Check for have_comments().
 
-	comment_form();
+  ?>
+  <div class="respond">
+    <div class="top"> <h2><?php esc_html_e('Respond','bebe');?></h2> </div>
+
+  <?php
+
+  $commenter = wp_get_current_commenter();
+  $req = get_option( 'require_name_email' );
+  $aria_req = ( $req ? " aria-required='true'" : '' );
+
+  $fields = array(
+    'author' => '<div class="col-4"><input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30"' . $aria_req . ' placeholder="Type your name"/></div>',
+    
+    'email'  => '<div class="col-4"><input id="email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30"' . $aria_req . ' placeholder="Type your email"/></div>',
+    
+    'url'    => '<div class="col-4"><input id="url" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" placeholder="Type your website"/></div>',
+  );
+
+  $args = array(
+    'cookies' => '',
+
+    'label_submit' => '',
+
+    'fields' => apply_filters( 'comment_form_default_fields', $fields ),
+
+    'comment_field' => '</label> <textarea id="comment" name="comment" cols="45" rows="8" aria-required="true" placeholder="Type your comment" ></textarea>',
+  );
+
+  // $args = array(
+  //   'label_submit' => '',
+  // );
+
+  	comment_form( $args );
 	?>
+
+  </div>
 
 </div><!-- #comments -->
