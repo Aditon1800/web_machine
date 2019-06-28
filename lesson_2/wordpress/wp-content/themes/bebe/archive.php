@@ -1,53 +1,56 @@
-<?php
-/**
- * The template for displaying archive pages
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
- * @package Bebe
- */
-
-get_header();
+<?php get_header();
 ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
+    <!-- Blog -->
+    <article class="blog">
+        <div class="items cf">
 
-		<?php if ( have_posts() ) : ?>
+          <?php if ( have_posts() ) : ?>
 
-			<header class="page-header">
-				<?php
-				the_archive_title( '<h1 class="page-title">', '</h1>' );
-				the_archive_description( '<div class="archive-description">', '</div>' );
-				?>
-			</header><!-- .page-header -->
+            <?php
+            /* Start the Loop */
+            while ( have_posts() ) :
+              the_post(); ?>
 
-			<?php
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
+                <div class="col-3">
+                    <a href="<?php the_permalink(); ?>">
+                        <?php the_post_thumbnail( 'post-front' ); ?>
+                    </a>
+                    <div class="info cf">
+                        <div class="time">
+                          <?php echo get_the_date(); ?>
+                        </div>
+                        <a href="" class="comments">
+                          <?php echo comments_number(); ?>
+                        </a>
+                    </div>
+                    <div class="text">
+                        <a href="<?php echo the_permalink(); ?>" class="caption">
+                          <?php the_title(); ?>
+                        </a>
+                        <?php the_excerpt(); ?>
+                    </div>
+                    <div class="wave"></div>
+                </div>
 
-				/*
-				 * Include the Post-Type-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_type() );
+            <?php endwhile;
+ 
+          endif;
+          wp_reset_postdata();
+          ?>
 
-			endwhile;
+        </div>
+    </article>
 
-			the_posts_navigation();
-
-		else :
-
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif;
-		?>
-
-		</main><!-- #main -->
-	</div><!-- #primary -->
+    <!-- Pagination -->
+    <article class="pagination">
+      <?php 
+        $setings = array(
+          'prev_next' => false
+        );
+        echo paginate_links( $setings );
+      ?>
+    </article>
 
 <?php
-get_sidebar();
 get_footer();

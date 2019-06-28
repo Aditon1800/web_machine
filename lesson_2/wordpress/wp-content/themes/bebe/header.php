@@ -144,7 +144,31 @@
           <!-- Caption -->
           <div class="title-page">
               <h2>
-                <?php echo the_title(); ?>
+                <?php
+                  if( is_tag() ) {
+                    echo "Tag Archive: " . single_tag_title( '', false );
+                  }elseif( is_search() ) {
+                    echo "Search Result for: " . get_search_query();
+                  }elseif( is_category() ) {
+                    echo "Category Archive";
+                  }elseif( is_author() ) {
+                    echo "Author Archive: " . get_the_author();
+                  }elseif( is_post_type_archive( 'rooms' ) ) {
+                    echo "Our Rooms";
+                  }elseif( is_archive() ) {
+                    if( is_year() ) {
+                      echo "Year Archive: " . get_the_date('Y');
+                    }elseif( is_month() ) {
+                      echo "Month Archive: " . get_the_date('M');
+                    }elseif( is_day() ) {
+                      echo "Day Archive: " . get_the_date('d');
+                    }else {
+                      echo "Archive";
+                    }
+                  }else {
+                    echo wp_title('');
+                  } 
+                 ?>
               </h2>
               <div class="page">
                 <!-- <span class="home"></span> <a href="index.html">Home</a> &nbsp; <span class="arrow">→</span> &nbsp; About Us -->

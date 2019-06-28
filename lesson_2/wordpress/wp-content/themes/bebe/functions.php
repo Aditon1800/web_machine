@@ -80,6 +80,21 @@ if ( ! function_exists( 'bebe_setup' ) ) :
 			'flex-width'  => true,
 			'flex-height' => true,
 		) );
+
+    /*
+      Crop image
+    */
+
+    add_image_size( 'post-front', 235, 183, true );
+    add_image_size( 'post-single', 370, 280, true );
+
+    add_image_size( 'gallery_one', 222, 341, true );
+    add_image_size( 'gallery_two', 222, 164, true );
+    add_image_size( 'gallery_three', 456,164, true );
+
+    add_image_size( 'teacher-thumb', 281,162, true );
+    add_image_size( 'room-thumb', 212,168, true );
+    add_image_size( 'room-slide-thumb', 463,355, true );
 	}
 endif;
 add_action( 'after_setup_theme', 'bebe_setup' );
@@ -143,10 +158,13 @@ function bebe_scripts() {
 /**
  * Enqueue admin scripts and styles.
  */
-function bebe_admin_scripts() {
-  wp_enqueue_style( 'metaboxes-style', get_template_directory_uri() . '/layouts/admin/metaboxes.css' );
+function bebe_admin_scripts( $hook ) {
+  if( 'post-new.php' == $hook || 'post.php' == $hook ) {
+    wp_enqueue_style( 'metaboxes-style', get_template_directory_uri() . '/layouts/admin/metaboxes.css' );
 
-  wp_enqueue_script( 'metaboxes-script', get_template_directory_uri() . '/js/admin/metaboxes.js', array(), '', true );
+    wp_enqueue_script( 'metaboxes-script', get_template_directory_uri() . '/js/admin/metaboxes.js', array(), '', true );
+    wp_enqueue_script( 'metabox-gallery-script', get_template_directory_uri() . '/js/admin/metabox-gallery.js', array(), '', true );
+  }
 }
 
 
@@ -182,6 +200,7 @@ require get_template_directory() . '/inc/tgm-list.php';
  * Init Metaboxes Options.
  */
 require get_template_directory() . '/inc/metaboxes.php';
+require get_template_directory() . '/inc/gallery-meta.php';
 
 /**
  * Init Redux Plugin Options.
@@ -207,17 +226,6 @@ add_filter('wpcf7_form_elements', function($content) {
     $content = str_replace('<br />', '', $content);
     return $content;
 });
-
-/*
-  Crop image
-*/
-
-add_image_size( 'post-front', 235, 183, true );
-add_image_size( 'post-single', 370, 280, true );
-
-add_image_size( 'gallery_one', 222, 341, true );
-add_image_size( 'gallery_two', 222, 164, true );
-add_image_size( 'gallery_three', 456,164, true );
 
 /*
   Rewrite excerpt
@@ -247,6 +255,32 @@ function register_post_types(){
     'public'              => true,
     'has_archive'         => true,
     'menu_icon'           => 'dashicons-admin-site',
+    'supports'            => array('title', 'editor', 'thumbnail'),
+    'rewrite'             => true 
+
+  ) );
+  register_post_type('teachers', array(
+    'label'  => null,
+    'labels' => array(
+      'name'               => 'Teachers',
+      'singular_name'      => 'Teacher',
+    ),
+    'public'              => true,
+    'has_archive'         => true,
+    'menu_icon'           => 'dashicons-grid-view',
+    'supports'            => array('title', 'editor', 'thumbnail'),
+    'rewrite'             => true 
+
+  ) );
+  register_post_type('rooms', array(
+    'label'  => null,
+    'labels' => array(
+      'name'               => 'Rooms',
+      'singular_name'      => 'Room',
+    ),
+    'public'              => true,
+    'has_archive'         => true,
+    'menu_icon'           => 'dashicons-grid-view',
     'supports'            => array('title', 'editor', 'thumbnail'),
     'rewrite'             => true 
 
@@ -290,3 +324,71 @@ function ale_get_share($type = 'fb', $permalink = false, $title = false) {
           return '';
   }
 }
+
+/*
+  Comment callback
+*/
+
+  // awesome semantic comment
+
+function bebe_comment($comment, $args, $depth) {
+  $GLOBALS['comment'] = $comment;
+  extract($args, EXTR_SKIP);
+
+  if ( 'article' == $args['style'] ) {
+    $tag = 'article';
+    $add_below = 'comment';
+  } else {
+    $tag = 'article';
+    $add_below = 'comment';
+  }
+
+  ?>
+  <<?php echo $tag ?> <?php comment_class(empty( $args['has_children'] ) ? '' :'parent') ?> id="comment-<?php comment_ID() ?>" itemscope itemtype="http://schema.org/Comment">
+
+  <div class="<?php if($depth > 1){ echo 'reply'; } else { ?>comment<?php } ?> cf">
+    <?php
+
+
+    if($depth == 2){ ?><div class="enter"></div><?php } ?>
+    <div class="avatar">
+      <?php echo get_avatar( $comment, 105 ); ?>
+      <h4><?php comment_author(); ?></h4>
+    </div>z
+    <div class="text">
+      <div class="top">
+        <h4 class="date"><?php esc_html('Date','bebe');?>: <?php comment_date() ?></h4>
+        <?php comment_reply_link(array_merge( $args, array('add_below' => $add_below, 'depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
+      </div>
+      <div class="dotted-line"></div>
+
+      <?php if ($comment->comment_approved == '0') : ?>
+        <p class="comment-meta-item"><?php esc_html('Your comment is awaiting moderation.','bebe');?></p>
+      <?php endif; ?>
+      <?php comment_text() ?>
+
+      <p><?php edit_comment_link('<p class="comment-meta-item">'.esc_html__('Edit this comment','bebe').'</p>','',''); ?></p>
+    </div>
+  </div>
+
+<?php }
+
+// end of awesome semantic comment
+
+function bebe_comment_close() {
+  echo '</article>';
+}
+
+/*
+  Move textfield down
+*/
+
+function bebe_move_comment_field_to_bottom( $fields ) {
+  $comment_field = $fields['comment'];
+  unset( $fields['comment'] );
+  unset( $fields['cookies'] );
+  $fields['comment'] = $comment_field;
+  return $fields;
+}
+
+add_filter( 'comment_form_fields', 'bebe_move_comment_field_to_bottom' );

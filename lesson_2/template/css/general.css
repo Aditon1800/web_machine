@@ -1896,12 +1896,6 @@ article.blog-single .category .categ {
   line-height: 25px;
   color: #fff;
 }
-article.blog-single .category .categ a {
-  color: inherit;
-}
-article.blog-single .category .categ a:hover {
-  opacity: .7;
-}
 article.blog-single .category .share {
   width: 200px;
   float: right;
