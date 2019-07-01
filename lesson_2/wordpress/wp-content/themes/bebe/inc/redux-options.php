@@ -120,7 +120,7 @@
         // If true, shows the default value next to each field that is not the default value.
         'default_mark'         => '',
         // What to print by the field's title if the value shown is default. Suggested: *
-        'show_import_export'   => true,
+        'show_import_export'   => false,
         // Shows the Import/Export panel when not used as a field.
 
         // CAREFUL -> These options are for advanced use only
@@ -137,48 +137,9 @@
         'use_cdn'              => true,
         // If you prefer not to use the CDN for Select2, Ace Editor, and others, you may download the Redux Vendor Support plugin yourself and run locally or embed it in your code.
 
-        // HINTS
-        'hints'                => array(
-            'icon'          => 'el el-question-sign',
-            'icon_position' => 'right',
-            'icon_color'    => 'lightgray',
-            'icon_size'     => 'normal',
-            'tip_style'     => array(
-                'color'   => 'red',
-                'shadow'  => true,
-                'rounded' => false,
-                'style'   => '',
-            ),
-            'tip_position'  => array(
-                'my' => 'top left',
-                'at' => 'bottom right',
-            ),
-            'tip_effect'    => array(
-                'show' => array(
-                    'effect'   => 'slide',
-                    'duration' => '500',
-                    'event'    => 'mouseover',
-                ),
-                'hide' => array(
-                    'effect'   => 'slide',
-                    'duration' => '500',
-                    'event'    => 'click mouseleave',
-                ),
-            ),
-        )
     );
 
     // ADMIN BAR LINKS -> Setup custom links in the admin bar menu as external items.
-    $args['admin_bar_links'][] = array(
-        'id'    => 'bebe-docs',
-        'href'  => '#',
-        'title' => __( 'Documentation', 'bebe' ),
-    );
-
-    $args['admin_bar_links'][] = array(
-        'href'  => '#',
-        'title' => __( 'Support', 'bebe' ),
-    );
 
     // SOCIAL ICONS -> Setup custom links in the footer for quick links in your panel footer icons.
     $args['share_icons'][] = array(
@@ -192,53 +153,10 @@
         'icon'  => 'el el-twitter'
     );
 
-    // Panel Intro text -> before the form
-    if ( ! isset( $args['global_variable'] ) || $args['global_variable'] !== false ) {
-        if ( ! empty( $args['global_variable'] ) ) {
-            $v = $args['global_variable'];
-        } else {
-            $v = str_replace( '-', '_', $args['opt_name'] );
-        }
-        $args['intro_text'] = sprintf( __( '<p>Did you know that Redux sets a global variable for you? To access any of your saved options from within your code you can use your global variable: <strong>$%1$s</strong></p>', 'bebe' ), $v );
-    } else {
-        $args['intro_text'] = __( '<p>This text is displayed above the options panel. It isn\'t required, but more info is always better! The intro_text field accepts all HTML.</p>', 'bebe' );
-    }
-
-    // Add content after the form.
-    $args['footer_text'] = __( '<p>This text is displayed below the options panel. It isn\'t required, but more info is always better! The footer_text field accepts all HTML.</p>', 'bebe' );
-
     Redux::setArgs( $opt_name, $args );
 
     /*
      * ---> END ARGUMENTS
-     */
-
-
-    /*
-     * ---> START HELP TABS
-     */
-
-    $tabs = array(
-        array(
-            'id'      => 'redux-help-tab-1',
-            'title'   => __( 'Theme Information 1', 'bebe' ),
-            'content' => __( '<p>This is the tab content, HTML is allowed.</p>', 'bebe' )
-        ),
-        array(
-            'id'      => 'redux-help-tab-2',
-            'title'   => __( 'Theme Information 2', 'bebe' ),
-            'content' => __( '<p>This is the tab content, HTML is allowed.</p>', 'bebe' )
-        )
-    );
-    Redux::setHelpTab( $opt_name, $tabs );
-
-    // Set the help sidebar
-    $content = __( '<p>This is the sidebar content, HTML is allowed.</p>', 'bebe' );
-    Redux::setHelpSidebar( $opt_name, $content );
-
-
-    /*
-     * <--- END HELP TABS
      */
 
 
@@ -305,109 +223,3 @@
             //print_r($css); // Compiler selector CSS values  compiler => array( CSS SELECTORS )
         }
     }
-
-    /**
-     * Custom function for the callback validation referenced above
-     * */
-    if ( ! function_exists( 'redux_validate_callback_function' ) ) {
-        function redux_validate_callback_function( $field, $value, $existing_value ) {
-            $error   = false;
-            $warning = false;
-
-            //do your validation
-            if ( $value == 1 ) {
-                $error = true;
-                $value = $existing_value;
-            } elseif ( $value == 2 ) {
-                $warning = true;
-                $value   = $existing_value;
-            }
-
-            $return['value'] = $value;
-
-            if ( $error == true ) {
-                $field['msg']    = 'your custom error message';
-                $return['error'] = $field;
-            }
-
-            if ( $warning == true ) {
-                $field['msg']      = 'your custom warning message';
-                $return['warning'] = $field;
-            }
-
-            return $return;
-        }
-    }
-
-    /**
-     * Custom function for the callback referenced above
-     */
-    if ( ! function_exists( 'redux_my_custom_field' ) ) {
-        function redux_my_custom_field( $field, $value ) {
-            print_r( $field );
-            echo '<br/>';
-            print_r( $value );
-        }
-    }
-
-    /**
-     * Custom function for filtering the sections array. Good for child themes to override or add to the sections.
-     * Simply include this function in the child themes functions.php file.
-     * NOTE: the defined constants for URLs, and directories will NOT be available at this point in a child theme,
-     * so you must use get_template_directory_uri() if you want to use any of the built in icons
-     * */
-    if ( ! function_exists( 'dynamic_section' ) ) {
-        function dynamic_section( $sections ) {
-            //$sections = array();
-            $sections[] = array(
-                'title'  => __( 'Section via hook', 'bebe' ),
-                'desc'   => __( '<p class="description">This is a section created by adding a filter to the sections array. Can be used by child themes to add/remove sections from the options.</p>', 'bebe' ),
-                'icon'   => 'el el-paper-clip',
-                // Leave this as a blank section, no options just some intro text set above.
-                'fields' => array()
-            );
-
-            return $sections;
-        }
-    }
-
-    /**
-     * Filter hook for filtering the args. Good for child themes to override or add to the args array. Can also be used in other functions.
-     * */
-    if ( ! function_exists( 'change_arguments' ) ) {
-        function change_arguments( $args ) {
-            //$args['dev_mode'] = true;
-
-            return $args;
-        }
-    }
-
-    /**
-     * Filter hook for filtering the default value of any given field. Very useful in development mode.
-     * */
-    if ( ! function_exists( 'change_defaults' ) ) {
-        function change_defaults( $defaults ) {
-            $defaults['str_replace'] = 'Testing filter hook!';
-
-            return $defaults;
-        }
-    }
-
-    /**
-     * Removes the demo link and the notice of integrated demo from the redux-framework plugin
-     */
-    if ( ! function_exists( 'remove_demo' ) ) {
-        function remove_demo() {
-            // Used to hide the demo mode link from the plugin page. Only used when Redux is a plugin.
-            if ( class_exists( 'ReduxFrameworkPlugin' ) ) {
-                remove_filter( 'plugin_row_meta', array(
-                    ReduxFrameworkPlugin::instance(),
-                    'plugin_metalinks'
-                ), null, 2 );
-
-                // Used to hide the activation notice informing users of the demo panel. Only used when Redux is a plugin.
-                remove_action( 'admin_notices', array( ReduxFrameworkPlugin::instance(), 'admin_notices' ) );
-            }
-        }
-    }
-
