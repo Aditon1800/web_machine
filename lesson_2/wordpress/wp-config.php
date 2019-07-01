@@ -26,7 +26,7 @@ define( 'DB_NAME', 'web_machine' );
 define( 'DB_USER', 'root' );
 
 /** MySQL database password */
-define( 'DB_PASSWORD', '' );
+define( 'DB_PASSWORD', 'root' );
 
 /** MySQL hostname */
 define( 'DB_HOST', 'localhost' );
@@ -46,14 +46,14 @@ define( 'DB_COLLATE', '' );
  *
  * @since 2.6.0
  */
-define( 'AUTH_KEY',         'gF-&2~r>S/cTO@8Tj4ZI]@1<H-,r}Vgk(sGM:dWuc?bw_Ce+n;5~rLIxsVe#|,5u' );
-define( 'SECURE_AUTH_KEY',  '&crYS=B*=fxVt }G#Ek>]l=-_<IpSPVA3sK^ a{l@1MteDln+x77xr[*+?!D)&0F' );
-define( 'LOGGED_IN_KEY',    'pC:xrK2kf[%~|AcYaQf,P/sO`)H:`{#9Rew`faw^`fCX52~:nWF{yXVuc~)3D!/>' );
-define( 'NONCE_KEY',        'q1,EMAg<#-f,lYoY!:r4(CpeJ;*hgp,i)z*{7g`sS~-8^3S+<Q5T|)^[B:2}RO_^' );
-define( 'AUTH_SALT',        'YBc(T?cS^fQ3)WTD.bX+6gJ)5~}%Qg<8.Fo /3yB{uELCV(/:Vi.``Hcz.Wm@p(g' );
-define( 'SECURE_AUTH_SALT', 'E3XvMPwc+n}g5lz#dsZ`{S=!zJk(b:X*nK,C:U#eL$>9LTDkrY4Dg#)d pqYv3}h' );
-define( 'LOGGED_IN_SALT',   'E_kl1Q9vGwfbN_xc:=Dt$l6#stoP{{tP`?/0uAuH-pp_?g>f,V~-]]vgy.hQ-PPl' );
-define( 'NONCE_SALT',       '-.{2hf<61PQvl+)J2/p1:RJif;.WM@h!Qs8Yy44l@!7RUj;2&#1*lTrL4}TU>t&G' );
+define( 'AUTH_KEY',         'Ph=X-k8)d2F=c3|7<v6jpLkqenP]Nqrj%.oO6P3=}ocjJ,6EE6^QL.+mK*9{lgpY' );
+define( 'SECURE_AUTH_KEY',  'j@cUBICe(:<&+eF_=@(4uSrmd9}38O|QC782${eQlQj]j26}pdWCm#UyC $$NJ3@' );
+define( 'LOGGED_IN_KEY',    '(/h)O+}_lJV1W{=|I.3HNWc08Wayz,tO[rGq@q|%F2_p*XeE=V}iA]][o2K(5CC{' );
+define( 'NONCE_KEY',        'D.%Of_|g3F7w} q[l eKVHDMm%2IkuQzm0HWe.F76O`!_9Fc3Gr,YeFZ&ngH?qy!' );
+define( 'AUTH_SALT',        'Ne5{xYTp#|QPPObLP;^.US5=&t@T%B7 YbyiWYvv]&>6|o5gXLI14YaG{X^P%hY~' );
+define( 'SECURE_AUTH_SALT', ',Vp5K_IEjumx0OhjJ@MLO4x<jYmy1._hVFb^<_e=,jXATAKdrMpBGc2_5{>|{lCq' );
+define( 'LOGGED_IN_SALT',   'A  )o}?+I@Y0m]$XL&uLr}PYp3s21oH9Us_KEx(Z2;cmk6}6rprM[CH}Ds9EYZcO' );
+define( 'NONCE_SALT',       '7;FvvDyR7oR|oE@Hnez,dPqUzg|7lhtr]I{d3iT6duURl~XEBy6sFE/}?zv+;7Ka' );
 
 /**#@-*/
 
@@ -88,5 +88,3 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /** Sets up WordPress vars and included files. */
 require_once( ABSPATH . 'wp-settings.php' );
-
-define('FS_METHOD', 'direct');

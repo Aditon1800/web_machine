@@ -38,7 +38,7 @@
                   <div class="col-6 text">
                       <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
                       <?php the_excerpt(); ?>
-                      <a class="more" href="<?php the_permalink(); ?>">More ></a>
+                      <a class="more" href="<?php the_permalink(); ?>"><?php echo __( 'More' ); ?> ></a>
                   </div>
                   <div class="col-6 img">
                     <?php the_post_thumbnail( 'rooms-thumb' ); ?>

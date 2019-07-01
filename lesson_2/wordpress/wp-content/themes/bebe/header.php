@@ -155,6 +155,8 @@
                     echo "Author Archive: " . get_the_author();
                   }elseif( is_post_type_archive( 'rooms' ) ) {
                     echo "Our Rooms";
+                  }elseif( is_post_type_archive( 'gallery' ) ) {
+                    echo "Our Gallery";
                   }elseif( is_archive() ) {
                     if( is_year() ) {
                       echo "Year Archive: " . get_the_date('Y');

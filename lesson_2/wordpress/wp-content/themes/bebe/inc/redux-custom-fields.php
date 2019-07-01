@@ -211,7 +211,30 @@
                 'validate' => 'numeric',
                 'desc'     => __( 'How many posts you want to show on the Room', 'bebe'),
                 'default'  => '',
-          ),  
+          ),
+          array(
+                'id'       => 'width',
+                'type'     => 'text',
+                'title'    => __( 'Width', 'bebe' ),
+                'subtitle' => __( '...', 'bebe' ),
+                'validate' => 'numeric',
+                'desc'     => __( '...', 'bebe'),
+                'default'  => '0',
+          ),
+        array(
+                'id'       => 'sidebarset',
+                'type'     => 'Sidebar set',
+                'title'    => __( 'Button Set Option', 'redux-framework-demo' ),
+                'subtitle' => __( 'No validation can be done on this field type', 'bebe_framework-demo' ),
+                'desc'     => __( 'This is the description field, again good for additional info.', 'redux-framework-demo' ),
+                //Must provide key => value pairs for radio options
+                'options'  => array(
+                    '1' => 'Left Sidebar',
+                    '2' => 'No Sidebar',
+                    '3' => 'Right Sidebar'
+                ),
+                'default'  => '2'
+            ),
       ),
   ) );
 

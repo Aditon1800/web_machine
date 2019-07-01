@@ -63,7 +63,7 @@
                 <a class="top" href="#top">TOP</a>
 
                 <div class="center-align cf">
-                    <div class="left">&copy; 2013 BEBE. All rights reserved</div>
+                    <div class="left">&copy; <?php echo  __( '2013 BEBE. All rights reserved' ) ?></div>
                     <div class="right">
                       <?php if( $bebe_options['bebefooterlogo']['url'] ) {?>
                         <a href="<?php echo esc_url( home_url('/') ); ?>">

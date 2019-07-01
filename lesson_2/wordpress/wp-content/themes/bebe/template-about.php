@@ -53,9 +53,9 @@
                     <div class="image">
                         <?php echo get_the_post_thumbnail( get_the_ID(), 'teacher-thumb' ); ?>
                         <ul>
-                          <?php if( get_post_meta( get_the_ID(), 'bebe_fb-about-link' ) ) { ?><li class="facebook"><a href="<?php echo esc_url( get_post_meta( get_the_ID(), 'bebe_fb-about-link' ) ) ?>"></a></li><?php } ?>
-                            <?php if( get_post_meta( get_the_ID(), 'bebe_twi-about-link' ) ) { ?><li class="twitter"><a href="<?php echo esc_url( get_post_meta( get_the_ID(), 'bebe_twi-about-link' ) ) ?>"></a></li><?php } ?>
-                            <?php if( get_post_meta( get_the_ID(), 'bebe_pint-about-link' ) ) { ?><li class="pinterest"><a href="<?php echo esc_url( get_post_meta( get_the_ID(), 'bebe_pint-about-link' ) ) ?>"></a></li><?php } ?>
+                          <?php if( get_post_meta( get_the_ID(), 'bebe_fb-about-link' ) ) { ?><li class="facebook"><a href="<?php echo esc_url( get_post_meta( get_the_ID(), 'bebe_fb-about-link', true ) ) ?>"></a></li><?php } ?>
+                            <?php if( get_post_meta( get_the_ID(), 'bebe_twi-about-link' ) ) { ?><li class="twitter"><a href="<?php echo esc_url( get_post_meta( get_the_ID(), 'bebe_twi-about-link', true ) ) ?>"></a></li><?php } ?>
+                            <?php if( get_post_meta( get_the_ID(), 'bebe_pint-about-link' ) ) { ?><li class="pinterest"><a href="<?php echo esc_url( get_post_meta( get_the_ID(), 'bebe_pint-about-link', true ) ) ?>"></a></li><?php } ?>
                         </ul>
                     </div>
 
