@@ -307,7 +307,7 @@ function bebe_taxes() {
     register_taxonomy( 
       'gallery-category', 
       'gallery', array(
-        'label' => __('Category'),
+        'label' => esc_html__('Category', 'bebe'),
         'rewrite' => array( 'slug' => 'gallery-category' ),
         'heirarchical' => true
     ) );
@@ -385,13 +385,13 @@ function bebe_comment($comment, $args, $depth) {
     </div>z
     <div class="text">
       <div class="top">
-        <h4 class="date"><?php esc_html('Date','bebe');?>: <?php comment_date() ?></h4>
+        <h4 class="date"><?php esc_html_e('Date','bebe');?>: <?php comment_date() ?></h4>
         <?php comment_reply_link(array_merge( $args, array('add_below' => $add_below, 'depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
       </div>
       <div class="dotted-line"></div>
 
       <?php if ($comment->comment_approved == '0') : ?>
-        <p class="comment-meta-item"><?php esc_html('Your comment is awaiting moderation.','bebe');?></p>
+        <p class="comment-meta-item"><?php esc_html_e('Your comment is awaiting moderation.','bebe');?></p>
       <?php endif; ?>
       <?php comment_text() ?>
 
@@ -433,6 +433,16 @@ function custom_css() {
   }
 
   $css .= 'body { line-height: 1.2; }';
+
+  $css .= '
+    .content_box {
+      display: flex;
+    }
+  ';
+
+  if( $bebe_options['sidebarset'] == '3' ) {
+    $css .= '.content_box {flex-direction: row-reverse;}';
+  }
 
   wp_add_inline_style('wpredux_css', $css);
 }

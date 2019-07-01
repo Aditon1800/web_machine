@@ -78,10 +78,6 @@ if ( post_password_required() ) {
     'comment_field' => '</label> <textarea id="comment" name="comment" cols="45" rows="8" aria-required="true" placeholder="Type your comment" ></textarea>',
   );
 
-  // $args = array(
-  //   'label_submit' => '',
-  // );
-
   	comment_form( $args );
 	?>
 

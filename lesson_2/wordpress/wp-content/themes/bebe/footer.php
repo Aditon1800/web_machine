@@ -60,10 +60,10 @@
 
             <!-- Bottom Line -->
             <div class="bottom-line">
-                <a class="top" href="#top">TOP</a>
+                <a class="top" href="#top"><?php _e('TOP', 'bebe');  ?></a>
 
                 <div class="center-align cf">
-                    <div class="left">&copy; <?php echo  __( '2013 BEBE. All rights reserved' ) ?></div>
+                    <div class="left">&copy; <?php _e( '2013 BEBE. All rights reserved' ) ?></div>
                     <div class="right">
                       <?php if( $bebe_options['bebefooterlogo']['url'] ) {?>
                         <a href="<?php echo esc_url( home_url('/') ); ?>">

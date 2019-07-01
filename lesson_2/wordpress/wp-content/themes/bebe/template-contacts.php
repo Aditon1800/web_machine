@@ -64,7 +64,7 @@
           if( !empty( $form_shortcode ) ) { ?>
 
             <div class="respond">
-                <div class="top"> <h2>Get in touch with us</h2> </div>
+                <div class="top"> <h2><?php esc_html_e('Get in touch with us', 'bebe'); ?></h2> </div>
                 <?php echo do_shortcode( $form_shortcode ); ?>
             </div>
 

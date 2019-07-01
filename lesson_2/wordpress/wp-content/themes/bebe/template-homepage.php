@@ -29,7 +29,7 @@
                 <?php } ?>
 
                 <?php if( get_post_meta( get_the_ID(), 'bebe_about-desc', true ) ) { ?>
-                  <a class="more" href="<?php echo esc_url( get_post_meta( get_the_ID(), 'bebe_about-link', true ) ) ?> ">More ></a>
+                  <a class="more" href="<?php echo esc_url( get_post_meta( get_the_ID(), 'bebe_about-link', true ) ) ?> "><?php esc_html_e( 'More', 'bebe' ) ?> ></a>
                 <?php } ?>
             </div>
         </aside>
@@ -100,7 +100,7 @@
 
     <!-- Recent From Blog -->
     <article class="recent-blog-home">
-        <h2 class="title">Recent from blog</h2>
+        <h2 class="title"><?php esc_html_e('Recent from blog', 'bebe'); ?></h2>
 
         <div class="items cf">
 
@@ -147,7 +147,7 @@
   <!-- Photo Gallery -->
   <div class="center-align photo-gallery">
     <div class="top">
-        <h2>Photo Gallery</h2>
+        <h2><?php esc_html_e( 'Photo Gallery', 'bebe' ) ?></h2>
     </div>
 
     <div id="photo-gallery">

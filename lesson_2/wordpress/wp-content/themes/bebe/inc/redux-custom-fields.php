@@ -223,10 +223,10 @@
           ),
         array(
                 'id'       => 'sidebarset',
-                'type'     => 'Sidebar set',
-                'title'    => __( 'Button Set Option', 'redux-framework-demo' ),
-                'subtitle' => __( 'No validation can be done on this field type', 'bebe_framework-demo' ),
-                'desc'     => __( 'This is the description field, again good for additional info.', 'redux-framework-demo' ),
+                'type'     => 'button_set',
+                'title'    => __( 'Button Set Option', 'bebe' ),
+                'subtitle' => __( 'No validation can be done on this field type', 'bebe' ),
+                'desc'     => __( 'This is the description field, again good for additional info.', 'bebe' ),
                 //Must provide key => value pairs for radio options
                 'options'  => array(
                     '1' => 'Left Sidebar',

@@ -146,26 +146,26 @@
               <h2>
                 <?php
                   if( is_tag() ) {
-                    echo "Tag Archive: " . single_tag_title( '', false );
+                    esc_html_e("Tag Archive: ", 'bebe') . single_tag_title( '', false );
                   }elseif( is_search() ) {
-                    echo "Search Result for: " . get_search_query();
+                    esc_html_e("Search Result for: ", 'bebe') . get_search_query();
                   }elseif( is_category() ) {
-                    echo "Category Archive";
+                    esc_html_e("Category Archive", 'bebe');
                   }elseif( is_author() ) {
-                    echo "Author Archive: " . get_the_author();
+                    esc_html_e("Author Archive: ", 'bebe') . get_the_author();
                   }elseif( is_post_type_archive( 'rooms' ) ) {
-                    echo "Our Rooms";
+                    esc_html_e("Our Rooms", 'bebe');
                   }elseif( is_post_type_archive( 'gallery' ) ) {
-                    echo "Our Gallery";
+                    esc_html_e("Our Gallery", 'bebe');
                   }elseif( is_archive() ) {
                     if( is_year() ) {
-                      echo "Year Archive: " . get_the_date('Y');
+                      esc_html_("Year Archive: ", 'bebe') . get_the_date('Y');
                     }elseif( is_month() ) {
-                      echo "Month Archive: " . get_the_date('M');
+                      esc_html_("Month Archive: ", 'bebe') . get_the_date('M');
                     }elseif( is_day() ) {
-                      echo "Day Archive: " . get_the_date('d');
+                      esc_html_("Day Archive: ", 'bebe') . get_the_date('d');
                     }else {
-                      echo "Archive";
+                      esc_html_("Archive", 'bebe');
                     }
                   }else {
                     echo wp_title('');

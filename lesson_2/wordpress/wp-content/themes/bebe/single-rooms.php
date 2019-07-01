@@ -28,7 +28,7 @@
     <!-- Other Rooms -->
     <article class="rooms opened">
 
-        <h2 class="title">Other Rooms</h2>
+        <h2 class="title"><?php esc_html_e('Other Rooms', 'bebe'); ?></h2>
 
         <div class="line cf">
           <?php
@@ -45,7 +45,7 @@
                 <div class="col-6 text">
                     <h3><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h3>
                     <?php the_excerpt(); ?>
-                    <a class="more" href="<?php the_permalink() ?>">More ></a>
+                    <a class="more" href="<?php the_permalink() ?>"><?php esc_html_e('More', 'bebe'); ?> ></a>
                 </div>
                 <div class="col-6 img">
                   <?php the_post_thumbnail( 'room-thumb' ); ?>

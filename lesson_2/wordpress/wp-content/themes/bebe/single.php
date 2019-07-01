@@ -42,7 +42,7 @@ get_header();
             <div class="dotted-line first"></div>
 
             <div class="category cf">
-                <h4 class="categ">Category: <?php the_category(', ') ?> / Tags: <?php the_tags('', ', ', ''); ?></h4>
+                <h4 class="categ"><?php esc_html_e('Category: ', 'bebe');  the_category(', ') ?> / Tags: <?php the_tags('', ', ', ''); ?></h4>
                 <div class="share">
                     <h4>Share:  </h4>
                     <ul>

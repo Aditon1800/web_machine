@@ -38,7 +38,8 @@
         <?php if( !empty( get_post_meta( get_the_ID(), 'bebe_about-title', true ) ) ) { 
           echo esc_attr( get_post_meta( get_the_ID(), 'bebe_about-title', true ) );
         }else {
-          echo "Teachers";} 
+          esc_html_e("Teachers", 'bebe');
+        } 
         ?>
       </h2>
 
